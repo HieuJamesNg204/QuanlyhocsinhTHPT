@@ -46,10 +46,15 @@ public class CapNhatThongTinForm extends JFrame {
                         JOptionPane.showMessageDialog(null, "Không tìm thấy học sinh",
                                 "Quản lý học sinh", JOptionPane.ERROR_MESSAGE);
                     } else {
-                        util.capNhatHocSinhTheoId(id, lopMoi);
-                        JOptionPane.showMessageDialog(null, "Cập nhật thông tin thành công",
-                                "Cập nhật thông tin học sinh", JOptionPane.INFORMATION_MESSAGE);
-                        this.dispose();
+                        if (lopMoi.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "Vui lòng nhập lớp mới",
+                                    "Quản lý học sinh", JOptionPane.ERROR_MESSAGE);
+                        } else {
+                            util.capNhatHocSinhTheoId(id, lopMoi);
+                            JOptionPane.showMessageDialog(null, "Cập nhật thông tin thành công",
+                                    "Cập nhật thông tin học sinh", JOptionPane.INFORMATION_MESSAGE);
+                            this.dispose();
+                        }
                     }
                 } else {
                     JOptionPane.showMessageDialog(null, "ID phải là số nguyên dương",

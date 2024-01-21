@@ -49,7 +49,7 @@ public class MainUI extends JFrame {
                 }
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null,
-                        "Lỗi hiển thị thông tin học sinh" + ex.getMessage(), "Quản lý học sinh",
+                        "Lỗi hiển thị thông tin học sinh: " + ex.getMessage(), "Quản lý học sinh",
                         JOptionPane.ERROR_MESSAGE);
             }
         });

@@ -41,10 +41,15 @@ public class ThemHocSinhForm extends JFrame {
             String queQuan = queQuanField.getText();
             String lop = lopField.getText();
 
-            util.themHocSinh(hoTen, gioiTinh, queQuan, lop);
-            JOptionPane.showMessageDialog(null, "Thêm học sinh thành Công",
-                    "Thêm học sinh", JOptionPane.INFORMATION_MESSAGE);
-            this.dispose();
+            if (hoTen.isEmpty() || gioiTinh.isEmpty() || queQuan.isEmpty() || lop.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Tất cả các trường đều bắt buộc",
+                        "Thêm học sinh", JOptionPane.ERROR_MESSAGE);
+            } else {
+                util.themHocSinh(hoTen, gioiTinh, queQuan, lop);
+                JOptionPane.showMessageDialog(null, "Thêm học sinh thành Công",
+                        "Thêm học sinh", JOptionPane.INFORMATION_MESSAGE);
+                this.dispose();
+            }
         });
 
         centralPanel.add(new JLabel("Họ tên:"));

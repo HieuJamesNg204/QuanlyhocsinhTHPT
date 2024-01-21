@@ -54,22 +54,24 @@ public class DatabaseUtil {
 
                 PreparedStatement statement;
                 if (gioiTinh.isEmpty() && queQuan.isEmpty() && lop.isEmpty()) {
-                    sqlQuery += ";";
+                    sqlQuery += " ORDER BY id;";
                     statement = connection.prepareStatement(sqlQuery);
                 } else {
                     sqlQuery += " WHERE ";
 
                     if (!gioiTinh.isEmpty()) {
-                        sqlQuery += "gioi_tinh=?" + ((!queQuan.isEmpty() || !lop.isEmpty())? " AND " : ";");
+                        sqlQuery += "gioi_tinh=?" + ((!queQuan.isEmpty() || !lop.isEmpty())? " AND " : " ");
                     }
 
                     if (!queQuan.isEmpty()) {
-                        sqlQuery += "que_quan=?" + ((!lop.isEmpty())? " AND " : ";");
+                        sqlQuery += "que_quan=?" + ((!lop.isEmpty())? " AND " : " ");
                     }
 
                     if (!lop.isEmpty()) {
-                        sqlQuery += "lop=?;";
+                        sqlQuery += "lop=? ";
                     }
+
+                    sqlQuery += "ORDER BY id;";
 
                     statement = connection.prepareStatement(sqlQuery);
 

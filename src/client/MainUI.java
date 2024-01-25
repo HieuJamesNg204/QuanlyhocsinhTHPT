@@ -187,6 +187,8 @@ public class MainUI extends JFrame {
         add(updateButton, gbc);
 
         // Row 8: Student List TextArea with Scrollbars
+        studentListTextArea.setEditable(false);
+
         gbc.gridy = 7;
 
         gbc.gridx = 0;
